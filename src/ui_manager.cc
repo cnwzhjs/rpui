@@ -137,7 +137,7 @@ namespace rp { namespace ui {
             }
 
             if (display_ && display_->isAlive()) {
-                display_->setBacklightLevel(currentBacklightLevel_);
+                //display_->setBacklightLevel(currentBacklightLevel_);
             }
         }
         
@@ -184,7 +184,7 @@ namespace rp { namespace ui {
                 try {
                     targetDc_->bitblt(backBufferImage_, dirtyFrame, dirtyFrame.position, BitOperationCopy);
                     if (shouldUpdateBacklight) {
-                        display_->setBacklightLevel(currentBacklightLevel_);
+                        //display_->setBacklightLevel(currentBacklightLevel_);
                     }
                 } catch (const Exception& e) {
                     resetAndRecoverDisplay_();
@@ -241,7 +241,7 @@ namespace rp { namespace ui {
                     initializeDisplay_();
                     targetDc_->bitblt(backBufferImage_, Rectangle(0, 0, backBufferImage_->getWidth(), backBufferImage_->getHeight()), Point(0, 0), BitOperationCopy);
                     targetDc_->bitblt(backBufferImage_, Rectangle(0, 0, backBufferImage_->getWidth(), backBufferImage_->getHeight()), Point(0, 0), BitOperationCopy);
-                    display_->setBacklightLevel(currentBacklightLevel_);
+                    //display_->setBacklightLevel(currentBacklightLevel_);
                 } catch(const Exception& e) {
                     e.printToConsole();
                 }
