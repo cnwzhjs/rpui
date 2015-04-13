@@ -69,11 +69,11 @@ namespace rp { namespace ui {
         size_t size = 0;
         while (*p && size < bufferSize-1) {
             int l = get_length(*p);
-            unsigned long ch;
+            unsigned long ch = 0;
             
-            ch = *p ^ "\0\xc0\xe0\xf0"[l-1];
+            ch = (unsigned char)(*p ^ "\0\xc0\xe0\xf0"[l-1]);
             p++;
-            
+
             for (int i = 1; i < l && *p; i++, p++) {
                 ch<<=6;
                 ch |= (*p ^ 0x80);
